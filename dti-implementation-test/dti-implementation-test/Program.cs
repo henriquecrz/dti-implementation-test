@@ -36,7 +36,7 @@ namespace dti_implementation_test
         {
             Catalog catalog = new Catalog();
 
-            foreach (Petshop petShop in petShops)
+            foreach (PetShop petShop in petShops)
             {
                 catalog.AddPetshop(petShop);
             }
@@ -47,6 +47,8 @@ namespace dti_implementation_test
         static Input FillInput()
         {
             Input input = new Input();
+
+            //input.GetType().GetFields();
 
             do
             {

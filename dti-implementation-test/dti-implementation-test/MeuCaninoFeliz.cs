@@ -15,16 +15,16 @@ namespace dti_implementation_test
 
 
 
-        public MeuCaninoFeliz(string name, double distance) : base()
+        public MeuCaninoFeliz(string name, double distance, Input input) : base(name, distance)
         {
-
+            SetAmount(input);
         }
 
-        public override void SetAmount(int smalldogs, int largedogs, DateTime date)
+        public void SetAmount(Input input)
         {
-            _amount = (smalldogs * SMALL_DOGS_BATH_PRICE) + (largedogs * LARGE_DOGS_BATH_PRICE);
+            _amount = (input.SmallDogs * SMALL_DOGS_BATH_PRICE) + (input.LargeDogs * LARGE_DOGS_BATH_PRICE);
 
-            if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+            if (input.Date.DayOfWeek == DayOfWeek.Saturday || input.Date.DayOfWeek == DayOfWeek.Sunday)
             {
                 _amount *= (decimal)1.2;
             }

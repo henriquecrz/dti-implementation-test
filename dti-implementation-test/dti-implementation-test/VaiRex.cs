@@ -12,8 +12,8 @@ namespace dti_implementation_test
 
         public const decimal SMALL_DOGS_BATH_PRICE = 15;
         public const decimal LARGE_DOGS_BATH_PRICE = 50;
-        public const decimal SMALL_DOGS_BATH_PRICE_WEEKEND = 15;
-        public const decimal LARGE_DOGS_BATH_PRICE_WEEKEND = 50;
+        public const decimal SMALL_DOGS_BATH_PRICE_WEEKEND = 20;
+        public const decimal LARGE_DOGS_BATH_PRICE_WEEKEND = 55;
 
 
 
