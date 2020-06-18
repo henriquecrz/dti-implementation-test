@@ -1,35 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace dti_implementation_test
 {
     class VaiRex : PetShop
     {
-        private string _name;
-        private double _distance;
-        private decimal _amount;
-
-        public const decimal SMALL_DOGS_BATH_PRICE = 15;
-        public const decimal LARGE_DOGS_BATH_PRICE = 50;
+        public const decimal SMALL_DOGS_BATH_PRICE_WEEKDAY = 15;
+        public const decimal LARGE_DOGS_BATH_PRICE_WEEKDAY = 50;
         public const decimal SMALL_DOGS_BATH_PRICE_WEEKEND = 20;
         public const decimal LARGE_DOGS_BATH_PRICE_WEEKEND = 55;
 
-
-
-        public VaiRex(string name, double distance) : base()
+        public VaiRex(string name, double distance, Input input) : base(name, distance)
         {
-
+            SetAmount(input);
         }
 
-        public override void SetAmount(int smalldogs, int largedogs, DateTime date)
+        public void SetAmount(Input input)
         {
-            _amount = (smalldogs * SMALL_DOGS_BATH_PRICE) + (largedogs * LARGE_DOGS_BATH_PRICE);
+            decimal smallDogs;
+            decimal largeDogs;
 
-            if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+            if (input.Date.DayOfWeek == DayOfWeek.Saturday || input.Date.DayOfWeek == DayOfWeek.Sunday)
             {
-                _amount = (smalldogs * SMALL_DOGS_BATH_PRICE_WEEKEND) + (largedogs * LARGE_DOGS_BATH_PRICE_WEEKEND);
+                smallDogs = SMALL_DOGS_BATH_PRICE_WEEKEND;
+                largeDogs = LARGE_DOGS_BATH_PRICE_WEEKEND;
             }
+            else
+            {
+                smallDogs = SMALL_DOGS_BATH_PRICE_WEEKDAY;
+                largeDogs = LARGE_DOGS_BATH_PRICE_WEEKDAY;
+            }
+
+            Amount = (input.SmallDogs * smallDogs) + (input.LargeDogs * largeDogs);
         }
     }
 }

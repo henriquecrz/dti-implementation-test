@@ -9,7 +9,7 @@ namespace dti_implementation_test
         static void Main(string[] args)
         {
             Input input = FillInput();
-            List<PetShop> petShops = CreatePetShops();
+            List<PetShop> petShops = CreatePetShops(input);
             Catalog catalog = FillCatalog(petShops);
 
             WriteBestPetShop(catalog);
@@ -17,11 +17,11 @@ namespace dti_implementation_test
             Console.ReadKey();
         }
 
-        static List<PetShop> CreatePetShops()
+        static List<PetShop> CreatePetShops(Input input)
         {
-            MeuCaninoFeliz meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000);
-            VaiRex vaiRex = new VaiRex("Vai Rex", 1700);
-            ChowChawgas chowChawgas = new ChowChawgas("Chow Chawgas", 800);
+            MeuCaninoFeliz meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000, input);
+            VaiRex vaiRex = new VaiRex("Vai Rex", 1700, input);
+            ChowChawgas chowChawgas = new ChowChawgas("Chow Chawgas", 800, input);
             List<PetShop> petShops = new List<PetShop>
             {
                 meuCaninoFeliz,

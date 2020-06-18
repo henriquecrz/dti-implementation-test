@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace dti_implementation_test
+﻿namespace dti_implementation_test
 {
     interface IPetShop
     {
@@ -8,8 +6,6 @@ namespace dti_implementation_test
 
         double Distance { get; set; }
 
-        //decimal Amount { get; }
-
-        //void SetAmount(int smallDogs, int largeDogs, DateTime date);
+        decimal Amount { get; set; }
     }
 }

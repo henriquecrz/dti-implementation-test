@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace dti_implementation_test
 {
     class MeuCaninoFeliz : PetShop
     {
-        private decimal _amount;
-
         public const decimal SMALL_DOGS_BATH_PRICE = 20;
         public const decimal LARGE_DOGS_BATH_PRICE = 40;
 
@@ -16,15 +12,13 @@ namespace dti_implementation_test
             SetAmount(input);
         }
 
-        public decimal Amount { get => _amount; }
-
         public void SetAmount(Input input)
         {
-            _amount = (input.SmallDogs * SMALL_DOGS_BATH_PRICE) + (input.LargeDogs * LARGE_DOGS_BATH_PRICE);
+            Amount = (input.SmallDogs * SMALL_DOGS_BATH_PRICE) + (input.LargeDogs * LARGE_DOGS_BATH_PRICE);
 
             if (input.Date.DayOfWeek == DayOfWeek.Saturday || input.Date.DayOfWeek == DayOfWeek.Sunday)
             {
-                _amount *= (decimal)1.2;
+                Amount *= (decimal)1.2;
             }
         }
     }
