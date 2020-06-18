@@ -6,19 +6,17 @@ namespace dti_implementation_test
 {
     class MeuCaninoFeliz : PetShop
     {
-        private string _name;
-        private double _distance;
         private decimal _amount;
 
         public const decimal SMALL_DOGS_BATH_PRICE = 20;
         public const decimal LARGE_DOGS_BATH_PRICE = 40;
 
-
-
         public MeuCaninoFeliz(string name, double distance, Input input) : base(name, distance)
         {
             SetAmount(input);
         }
+
+        public decimal Amount { get => _amount; }
 
         public void SetAmount(Input input)
         {

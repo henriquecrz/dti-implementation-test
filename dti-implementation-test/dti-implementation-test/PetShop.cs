@@ -8,7 +8,7 @@ namespace dti_implementation_test
     {
         private string _name;
         private double _distance;
-        private decimal _amount = 0;
+        //private decimal _amount = 0;
 
         public PetShop(string name, double distance)
         {
@@ -20,6 +20,6 @@ namespace dti_implementation_test
 
         public double Distance { get => _distance; set => _distance = value; }
 
-        public decimal Amount { get => _amount; }
+        //public decimal Amount { get => _amount; }
     }
 }

@@ -8,7 +8,7 @@ namespace dti_implementation_test
 
         double Distance { get; set; }
 
-        decimal Amount { get; }
+        //decimal Amount { get; }
 
         //void SetAmount(int smallDogs, int largeDogs, DateTime date);
     }
