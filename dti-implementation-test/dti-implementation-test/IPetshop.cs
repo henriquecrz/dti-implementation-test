@@ -2,7 +2,7 @@
 
 namespace dti_implementation_test
 {
-    interface IPetshop
+    interface IPetShop
     {
         string Name { get; set; }
 

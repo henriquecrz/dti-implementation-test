@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dti_implementation_test
 {
-    abstract class Petshop : IPetshop
+    class PetShop : IPetShop
     {
         private string _name;
         private double _distance;

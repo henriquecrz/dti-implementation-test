@@ -1,31 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace dti_implementation_test
 {
     class Catalog
     {
-        private List<Petshop> _petshops;
+        private List<PetShop> _petShops;
 
         public Catalog()
         {
-            _petshops = new List<Petshop>();
+            _petShops = new List<PetShop>();
         }
 
-        public List<Petshop> Petshops { get => _petshops; }
-
-        public void AddPetshop(Petshop petshop)
+        public void AddPetshop(PetShop petShop)
         {
-            _petshops.Add(petshop);
+            _petShops.Add(petShop);
         }
-        
-        public Petshop GetBestPetshop()
-        {
-            List<Petshop> petshops = _petshops.OrderBy(petshop => petshop.Amount).ThenBy(petshop => petshop.Distance).ToList();
 
-            return (petshops.Count > 0) ? petshops.ElementAt(0) : new Petshop("", 0); // throw new CustomException();
+        public void RemovePetShop(PetShop petShop)
+        {
+            _petShops.Remove(petShop);
+        }
+
+        public List<PetShop> GetPetShops()
+        {
+            return _petShops;
+        }
+
+        public PetShop GetBestPetShop()
+        {
+            return _petShops
+                .OrderBy(petshop => petshop.Amount)
+                .ThenBy(petshop => petshop.Distance)
+                .ToList()
+                .FirstOrDefault();
         }
     }
 }

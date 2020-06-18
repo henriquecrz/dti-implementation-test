@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dti_implementation_test
 {
-    class MeuCaninoFeliz : Petshop
+    class MeuCaninoFeliz : PetShop
     {
         private string _name;
         private double _distance;
@@ -15,7 +15,7 @@ namespace dti_implementation_test
 
 
 
-        public MeuCaninoFeliz(string name, double distance) : base(name, distance)
+        public MeuCaninoFeliz(string name, double distance) : base()
         {
 
         }

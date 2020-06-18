@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace dti_implementation_test.Utils
+﻿namespace dti_implementation_test.Utils
 {
     class Constant
     {
+        public const string NO_REGISTERED_PET_SHOPS_MESSAGE = "There is no registered pet shops.";
     }
 }

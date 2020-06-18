@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dti_implementation_test
 {
-    class ChowChawgas : Petshop
+    class ChowChawgas : PetShop
     {
         private string _name;
         private double _distance;
@@ -13,7 +13,7 @@ namespace dti_implementation_test
         public const decimal SMALL_DOGS_BATH_PRICE = 30;
         public const decimal LARGE_DOGS_BATH_PRICE = 45;
 
-        public ChowChawgas(string name, double distance) : base(name, distance)
+        public ChowChawgas(string name, double distance) : base()
         {
 
         }

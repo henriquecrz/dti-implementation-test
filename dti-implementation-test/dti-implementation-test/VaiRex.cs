@@ -4,7 +4,7 @@ using System.Text;
 
 namespace dti_implementation_test
 {
-    class VaiRex : Petshop
+    class VaiRex : PetShop
     {
         private string _name;
         private double _distance;
@@ -17,7 +17,7 @@ namespace dti_implementation_test
 
 
 
-        public VaiRex(string name, double distance) : base(name, distance)
+        public VaiRex(string name, double distance) : base()
         {
 
         }

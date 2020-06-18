@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dti_implementation_test.Utils;
+using System;
 using System.Collections.Generic;
 
 namespace dti_implementation_test
@@ -7,42 +8,37 @@ namespace dti_implementation_test
     {
         static void Main(string[] args)
         {
-            List<Petshop> petshops = CreatePetshops();
-            Catalog catalog = FillCatalog(petshops);
             Input input = FillInput();
+            List<PetShop> petShops = CreatePetShops();
+            Catalog catalog = FillCatalog(petShops);
 
-            // Definindo o melhor custo benefício
-
-
-            // Output
-            Console.WriteLine($"O melhor petshop é o {catalog.GetBestPetshop().Name}.");
-            Console.WriteLine($"O melhor preço é {catalog.GetBestPetshop().Amount:C}");
+            WriteBestPetShop(catalog);
 
             Console.ReadKey();
         }
 
-        static List<Petshop> CreatePetshops()
+        static List<PetShop> CreatePetShops()
         {
-            List<Petshop> petshops = new List<Petshop>();
-
             MeuCaninoFeliz meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000);
             VaiRex vaiRex = new VaiRex("Vai Rex", 1700);
             ChowChawgas chowChawgas = new ChowChawgas("Chow Chawgas", 800);
+            List<PetShop> petShops = new List<PetShop>
+            {
+                meuCaninoFeliz,
+                vaiRex,
+                chowChawgas
+            };
 
-            petshops.Add(meuCaninoFeliz);
-            petshops.Add(vaiRex);
-            petshops.Add(chowChawgas);
-
-            return petshops;
+            return petShops;
         }
 
-        static Catalog FillCatalog(List<Petshop> petshops)
+        static Catalog FillCatalog(List<PetShop> petShops)
         {
             Catalog catalog = new Catalog();
 
-            foreach (Petshop petshop in petshops)
+            foreach (Petshop petShop in petShops)
             {
-                catalog.AddPetshop(petshop);
+                catalog.AddPetshop(petShop);
             }
 
             return catalog;
@@ -90,6 +86,17 @@ namespace dti_implementation_test
             } while (!input.IsParseSuccess);
 
             return input;
+        }
+
+        static void WriteBestPetShop(Catalog catalog)
+        {
+            PetShop bestPetShop = catalog.GetBestPetShop();
+
+            string message = (bestPetShop != null) ?
+                $"The better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}." :
+                Constant.NO_REGISTERED_PET_SHOPS_MESSAGE;
+
+            Console.WriteLine(message);
         }
     }
 }
