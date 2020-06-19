@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace dti_implementation_test
+namespace dti_implementation_test.Application
 {
     class Catalog
     {

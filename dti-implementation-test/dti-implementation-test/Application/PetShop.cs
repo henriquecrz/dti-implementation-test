@@ -1,4 +1,4 @@
-﻿namespace dti_implementation_test
+﻿namespace dti_implementation_test.Application
 {
     abstract class PetShop : IPetShop
     {
