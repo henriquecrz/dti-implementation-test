@@ -7,6 +7,5 @@
 .vs/
 
 # Targets
-.bin/
-
-.obj/
+bin/
+obj/
