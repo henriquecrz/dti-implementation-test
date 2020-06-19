@@ -5,3 +5,6 @@
 
 # Visual Studio temp something
 .vs/
+
+# Targets
+.bin/
