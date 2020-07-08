@@ -12,7 +12,7 @@ namespace dti_implementation_test.Application
             _petShops = new List<PetShop>();
         }
 
-        public void AddPetshop(PetShop petShop)
+        public void AddPetShop(PetShop petShop)
         {
             _petShops.Add(petShop);
         }
@@ -30,8 +30,8 @@ namespace dti_implementation_test.Application
         public PetShop GetBestPetShop()
         {
             return _petShops
-                .OrderBy(petshop => petshop.Amount)
-                .ThenBy(petshop => petshop.Distance)
+                .OrderBy(petShop => petShop.Amount)
+                .ThenBy(petShop => petShop.Distance)
                 .ToList()
                 .FirstOrDefault();
         }

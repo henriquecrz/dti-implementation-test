@@ -14,7 +14,7 @@ namespace dti_implementation_test.Application
             SetAmount(input);
         }
 
-        public void SetAmount(Input input)
+        public override void SetAmount(Input input)
         {
             decimal smallDogs;
             decimal largeDogs;

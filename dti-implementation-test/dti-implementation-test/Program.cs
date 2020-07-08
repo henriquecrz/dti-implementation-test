@@ -39,7 +39,7 @@ namespace dti_implementation_test
 
             foreach (PetShop petShop in petShops)
             {
-                catalog.AddPetshop(petShop);
+                catalog.AddPetShop(petShop);
             }
 
             return catalog;
@@ -89,15 +89,17 @@ namespace dti_implementation_test
             } while (!input.IsParseSuccess);
 
             return input;
+
+            // return new Input(date, smallDogs, largeDogs);
         }
 
         static void WriteBestPetShop(Catalog catalog)
         {
             PetShop bestPetShop = catalog.GetBestPetShop();
 
-            string message = (bestPetShop != null) ?
-                $"The better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}." :
-                Constant.NO_REGISTERED_PET_SHOPS_MESSAGE;
+            string message = (bestPetShop is null) ?
+                Constant.NO_REGISTERED_PET_SHOPS_MESSAGE :
+                $"The better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
 
             Console.WriteLine(message);
         }

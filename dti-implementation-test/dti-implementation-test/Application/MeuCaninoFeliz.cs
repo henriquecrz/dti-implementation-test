@@ -12,7 +12,7 @@ namespace dti_implementation_test.Application
             SetAmount(input);
         }
 
-        public void SetAmount(Input input)
+        public override void SetAmount(Input input)
         {
             Amount = (input.SmallDogs * SMALL_DOGS_BATH_PRICE) + (input.LargeDogs * LARGE_DOGS_BATH_PRICE);
 

@@ -8,6 +8,8 @@ namespace dti_implementation_test.Application
         private int _largeDogs;
         private DateTime _date;
 
+        // Make a constructor
+
         public bool IsParseSuccess { get; private set; } = false;
 
         public int SmallDogs { get => _smallDogs; }

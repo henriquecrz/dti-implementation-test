@@ -13,5 +13,7 @@
         public double Distance { get; set; }
 
         public decimal Amount { get; set; }
+
+        public abstract void SetAmount(Input input);
     }
 }
