@@ -6,8 +6,4 @@
     <RootNamespace>dti_implementation_test</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Tests\" />
-  </ItemGroup>
-
 </Project>
