@@ -47,50 +47,49 @@ namespace dti_implementation_test
 
         static Input FillInput()
         {
-            Input input = new Input();
-
-            //input.GetType().GetFields();
-
-            do
-            {
-                Console.Write("Informe a data do banho (ex: 3/8/2018): ");
-                input.SetDate(Console.ReadLine());
-
-                if (!input.IsParseSuccess)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Data inválida, por favor insira uma data no formato dd-MM-yyyy.");
-                }
-            } while (!input.IsParseSuccess);
+            bool isParseSuccess;
+            DateTime date;
+            int smallDogs;
+            int largeDogs;
 
             do
             {
-                Console.Write("Informe a quantidade de cães pequenos: ");
-                input.SetSmallDogs(Console.ReadLine());
+                Console.Write(Constant.DATE_INPUT_LABEL);
+                isParseSuccess = DateTime.TryParse(Console.ReadLine(), out date);
 
-                if (!input.IsParseSuccess)
+                if (!isParseSuccess)
                 {
                     Console.Clear();
-
-                    Console.WriteLine("Valor inválido, por favor insira um número inteiro.");
+                    Console.WriteLine(Constant.DATE_INVALID_VALUE_MESSAGE);
                 }
-            } while (!input.IsParseSuccess);
+            } while (!isParseSuccess);
 
             do
             {
-                Console.Write("Informe a quantidade de cães grandes: ");
-                input.SetLargeDogs(Console.ReadLine());
+                Console.Write(Constant.SMALL_DOG_INPUT_LABEL);
+                isParseSuccess = int.TryParse(Console.ReadLine(), out smallDogs);
 
-                if (!input.IsParseSuccess)
+                if (!isParseSuccess || smallDogs < 0)
                 {
                     Console.Clear();
-                    Console.WriteLine("Valor inválido, por favor insira um número inteiro.");
+
+                    Console.WriteLine(Constant.DOG_INVALID_VALUE_MESSAGE);
                 }
-            } while (!input.IsParseSuccess);
+            } while (!isParseSuccess);
 
-            return input;
+            do
+            {
+                Console.Write(Constant.LARGE_DOG_INPUT_LABEL);
+                isParseSuccess = int.TryParse(Console.ReadLine(), out largeDogs);
 
-            // return new Input(date, smallDogs, largeDogs);
+                if (!isParseSuccess || smallDogs < 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine(Constant.DOG_INVALID_VALUE_MESSAGE);
+                }
+            } while (!isParseSuccess);
+
+            return new Input(date, smallDogs, largeDogs);
         }
 
         static void WriteBestPetShop(Catalog catalog)
@@ -99,7 +98,7 @@ namespace dti_implementation_test
 
             string message = (bestPetShop is null) ?
                 Constant.NO_REGISTERED_PET_SHOPS_MESSAGE :
-                $"The better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
+                $"\nThe better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
 
             Console.WriteLine(message);
         }
