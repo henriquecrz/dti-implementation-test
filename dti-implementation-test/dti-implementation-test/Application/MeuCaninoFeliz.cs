@@ -1,4 +1,4 @@
-﻿using System;
+﻿using dti_implementation_test.Utils;
 
 namespace dti_implementation_test.Application
 {
@@ -16,7 +16,7 @@ namespace dti_implementation_test.Application
         {
             Amount = (input.SmallDogs * SMALL_DOGS_BATH_PRICE) + (input.LargeDogs * LARGE_DOGS_BATH_PRICE);
 
-            if (input.Date.DayOfWeek == DayOfWeek.Saturday || input.Date.DayOfWeek == DayOfWeek.Sunday)
+            if (Util.IsWeekend(input.Date))
             {
                 Amount *= (decimal)1.2;
             }

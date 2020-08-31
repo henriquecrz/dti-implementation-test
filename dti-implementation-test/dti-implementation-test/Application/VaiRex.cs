@@ -1,4 +1,4 @@
-﻿using System;
+﻿using dti_implementation_test.Utils;
 
 namespace dti_implementation_test.Application
 {
@@ -19,7 +19,7 @@ namespace dti_implementation_test.Application
             decimal smallDogs;
             decimal largeDogs;
 
-            if (input.Date.DayOfWeek == DayOfWeek.Saturday || input.Date.DayOfWeek == DayOfWeek.Sunday)
+            if (Util.IsWeekend(input.Date))
             {
                 smallDogs = SMALL_DOGS_BATH_PRICE_WEEKEND;
                 largeDogs = LARGE_DOGS_BATH_PRICE_WEEKEND;
