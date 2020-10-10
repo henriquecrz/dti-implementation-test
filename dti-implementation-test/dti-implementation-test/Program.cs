@@ -54,38 +54,38 @@ namespace dti_implementation_test
 
             do
             {
-                Console.Write(Constant.DATE_INPUT_LABEL);
+                Console.Write(Label.DATE_INPUT);
                 isParseSuccess = DateTime.TryParse(Console.ReadLine(), out date);
 
                 if (!isParseSuccess)
                 {
                     Console.Clear();
-                    Console.WriteLine(Constant.DATE_INVALID_VALUE_MESSAGE);
+                    Console.WriteLine(Message.DATE_INVALID_VALUE);
                 }
             } while (!isParseSuccess);
 
             do
             {
-                Console.Write(Constant.SMALL_DOG_INPUT_LABEL);
+                Console.Write(Label.SMALL_DOG_INPUT);
                 isParseSuccess = int.TryParse(Console.ReadLine(), out smallDogs);
 
                 if (!isParseSuccess || smallDogs < 0)
                 {
                     Console.Clear();
 
-                    Console.WriteLine(Constant.DOG_INVALID_VALUE_MESSAGE);
+                    Console.WriteLine(Message.DOG_INVALID_VALUE);
                 }
             } while (!isParseSuccess);
 
             do
             {
-                Console.Write(Constant.LARGE_DOG_INPUT_LABEL);
+                Console.Write(Label.LARGE_DOG_INPUT);
                 isParseSuccess = int.TryParse(Console.ReadLine(), out largeDogs);
 
                 if (!isParseSuccess || smallDogs < 0)
                 {
                     Console.Clear();
-                    Console.WriteLine(Constant.DOG_INVALID_VALUE_MESSAGE);
+                    Console.WriteLine(Message.DOG_INVALID_VALUE);
                 }
             } while (!isParseSuccess);
 
@@ -97,7 +97,7 @@ namespace dti_implementation_test
             PetShop bestPetShop = catalog.GetBestPetShop();
 
             string message = (bestPetShop is null) ?
-                Constant.NO_REGISTERED_PET_SHOPS_MESSAGE :
+                Message.NO_REGISTERED_PET_SHOPS :
                 $"\nThe better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
 
             Console.WriteLine(message);
