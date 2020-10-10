@@ -1,6 +1,6 @@
 ﻿namespace dti_implementation_test.Application
 {
-    class ChowChawgas : PetShop
+    public class ChowChawgas : PetShop
     {
         public const decimal SMALL_DOGS_BATH_PRICE = 30;
         public const decimal LARGE_DOGS_BATH_PRICE = 45;

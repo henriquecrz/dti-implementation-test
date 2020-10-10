@@ -2,7 +2,7 @@
 
 namespace dti_implementation_test.Application
 {
-    class VaiRex : PetShop
+    public class VaiRex : PetShop
     {
         public const decimal SMALL_DOGS_BATH_PRICE_WEEKDAY = 15;
         public const decimal LARGE_DOGS_BATH_PRICE_WEEKDAY = 50;
@@ -19,7 +19,7 @@ namespace dti_implementation_test.Application
             decimal smallDogs;
             decimal largeDogs;
 
-            if (Util.IsWeekend(input.Date))
+            if (input.Date.IsWeekend())
             {
                 smallDogs = SMALL_DOGS_BATH_PRICE_WEEKEND;
                 largeDogs = LARGE_DOGS_BATH_PRICE_WEEKEND;

@@ -2,7 +2,7 @@
 
 namespace dti_implementation_test.Application
 {
-    class Input
+    public class Input
     {
         public Input(DateTime date, int smallDogs, int largeDogs)
         {

@@ -1,6 +1,6 @@
 ﻿namespace dti_implementation_test.Application
 {
-    abstract class PetShop : IPetShop
+    public abstract class PetShop : IPetShop
     {
         protected PetShop(string name, double distance)
         {

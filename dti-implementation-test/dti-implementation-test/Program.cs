@@ -5,47 +5,20 @@ using System.Collections.Generic;
 
 namespace dti_implementation_test
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Input input = FillInput();
-            List<PetShop> petShops = CreatePetShops(input);
-            Catalog catalog = FillCatalog(petShops);
+            Input input = GetInput();
+            List<PetShop> petShops = GetPetShops(input);
+            Catalog catalog = new Catalog();
 
-            WriteBestPetShop(catalog);
-
+            FillCatalog(catalog, petShops);
+            ShowBestPetShop(catalog);
             Console.ReadKey();
         }
 
-        static List<PetShop> CreatePetShops(Input input)
-        {
-            MeuCaninoFeliz meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000, input);
-            VaiRex vaiRex = new VaiRex("Vai Rex", 1700, input);
-            ChowChawgas chowChawgas = new ChowChawgas("Chow Chawgas", 800, input);
-            List<PetShop> petShops = new List<PetShop>
-            {
-                meuCaninoFeliz,
-                vaiRex,
-                chowChawgas
-            };
-
-            return petShops;
-        }
-
-        static Catalog FillCatalog(List<PetShop> petShops)
-        {
-            Catalog catalog = new Catalog();
-
-            foreach (PetShop petShop in petShops)
-            {
-                catalog.AddPetShop(petShop);
-            }
-
-            return catalog;
-        }
-
-        static Input FillInput()
+        static Input GetInput()
         {
             bool isParseSuccess;
             DateTime date;
@@ -92,7 +65,23 @@ namespace dti_implementation_test
             return new Input(date, smallDogs, largeDogs);
         }
 
-        static void WriteBestPetShop(Catalog catalog)
+        static List<PetShop> GetPetShops(Input input)
+        {
+            MeuCaninoFeliz meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000, input);
+            VaiRex vaiRex = new VaiRex("Vai Rex", 1700, input);
+            ChowChawgas chowChawgas = new ChowChawgas("Chow Chawgas", 800, input);
+
+            return new List<PetShop>
+            {
+                meuCaninoFeliz,
+                vaiRex,
+                chowChawgas
+            };
+        }
+
+        static void FillCatalog(Catalog catalog, List<PetShop> petShops) => petShops.ForEach(petShop => catalog.Add(petShop));
+
+        static void ShowBestPetShop(Catalog catalog)
         {
             PetShop bestPetShop = catalog.GetBestPetShop();
 

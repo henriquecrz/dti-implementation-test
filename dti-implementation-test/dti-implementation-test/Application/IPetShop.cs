@@ -1,6 +1,6 @@
 ﻿namespace dti_implementation_test.Application
 {
-    interface IPetShop
+    public interface IPetShop
     {
         string Name { get; set; }
 

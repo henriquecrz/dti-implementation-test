@@ -3,29 +3,13 @@ using System.Linq;
 
 namespace dti_implementation_test.Application
 {
-    class Catalog
+    public class Catalog
     {
         private List<PetShop> _petShops;
 
-        public Catalog()
-        {
-            _petShops = new List<PetShop>();
-        }
+        public Catalog() => _petShops = new List<PetShop>();
 
-        public void AddPetShop(PetShop petShop)
-        {
-            _petShops.Add(petShop);
-        }
-
-        public void RemovePetShop(PetShop petShop)
-        {
-            _petShops.Remove(petShop);
-        }
-
-        public List<PetShop> GetPetShops()
-        {
-            return _petShops;
-        }
+        public void Add(PetShop petShop) => _petShops.Add(petShop);
 
         public PetShop GetBestPetShop()
         {
