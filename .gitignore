@@ -5,6 +5,7 @@
 
 # Visual Studio temp something
 .vs/
+.vscode/
 
 # Targets
 bin/
