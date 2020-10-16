@@ -85,9 +85,9 @@ namespace dti_implementation_test
         {
             PetShop bestPetShop = catalog.GetBestPetShop();
 
-            string message = (bestPetShop is null) ?
-                Message.NO_REGISTERED_PET_SHOPS :
-                $"\nThe better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
+            string message = (bestPetShop is null)
+                ? Message.NO_REGISTERED_PET_SHOPS
+                : $"\nThe better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
 
             Console.WriteLine(message);
         }
