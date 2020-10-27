@@ -1,19 +1,18 @@
-﻿namespace dti_implementation_test.Application
+namespace dti_implementation_test.Application
 {
-    public abstract class PetShop : IPetShop
+    public class PetShop : PetShopBase
     {
-        protected PetShop(string name, double distance)
+        public const decimal SMALL_DOGS_BATH_PRICE = 20;
+        public const decimal LARGE_DOGS_BATH_PRICE = 35;
+
+        public PetShop(string name, double distance, Input input) : base(name, distance)
         {
-            Name = name;
-            Distance = distance;
+            SetAmount(input);
         }
 
-        public string Name { get; set; }
-
-        public double Distance { get; set; }
-
-        public decimal Amount { get; set; }
-
-        public abstract void SetAmount(Input input);
+        public override void SetAmount(Input input)
+        {
+            Amount = (input.SmallDogs * SMALL_DOGS_BATH_PRICE) + (input.LargeDogs * LARGE_DOGS_BATH_PRICE);
+        }
     }
 }
