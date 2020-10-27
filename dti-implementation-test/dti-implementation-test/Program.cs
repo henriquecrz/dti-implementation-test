@@ -10,7 +10,7 @@ namespace dti_implementation_test
         static void Main(string[] args)
         {
             Input input = GetInput();
-            List<PetShop> petShops = GetPetShops(input);
+            List<IPetShop> petShops = GetPetShops(input);
             Catalog catalog = new Catalog();
 
             FillCatalog(catalog, petShops);
@@ -65,13 +65,13 @@ namespace dti_implementation_test
             return new Input(date, smallDogs, largeDogs);
         }
 
-        static List<PetShop> GetPetShops(Input input)
+        static List<IPetShop> GetPetShops(Input input)
         {
             MeuCaninoFeliz meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000, input);
             VaiRex vaiRex = new VaiRex("Vai Rex", 1700, input);
             ChowChawgas chowChawgas = new ChowChawgas("Chow Chawgas", 800, input);
 
-            return new List<PetShop>
+            return new List<IPetShop>
             {
                 meuCaninoFeliz,
                 vaiRex,
@@ -79,11 +79,11 @@ namespace dti_implementation_test
             };
         }
 
-        static void FillCatalog(Catalog catalog, List<PetShop> petShops) => petShops.ForEach(petShop => catalog.Add(petShop));
+        static void FillCatalog(Catalog catalog, List<IPetShop> petShops) => petShops.ForEach(petShop => catalog.Add(petShop));
 
         static void ShowBestPetShop(Catalog catalog)
         {
-            PetShop bestPetShop = catalog.GetBestPetShop();
+            IPetShop bestPetShop = catalog.GetBestPetShop();
 
             string message = (bestPetShop is null)
                 ? Message.NO_REGISTERED_PET_SHOPS

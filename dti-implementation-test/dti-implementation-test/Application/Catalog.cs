@@ -5,13 +5,13 @@ namespace dti_implementation_test.Application
 {
     public class Catalog
     {
-        private List<PetShop> _petShops;
+        private IList<IPetShop> _petShops;
 
-        public Catalog() => _petShops = new List<PetShop>();
+        public Catalog() => _petShops = new List<IPetShop>();
 
-        public void Add(PetShop petShop) => _petShops.Add(petShop);
+        public void Add(IPetShop petShop) => _petShops.Add(petShop);
 
-        public PetShop GetBestPetShop()
+        public IPetShop GetBestPetShop()
         {
             return _petShops
                 .OrderBy(petShop => petShop.Amount)
