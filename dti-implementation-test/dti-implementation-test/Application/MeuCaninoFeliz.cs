@@ -2,7 +2,7 @@
 
 namespace dti_implementation_test.Application
 {
-    class MeuCaninoFeliz : PetShop
+    public class MeuCaninoFeliz : PetShopBase
     {
         public const decimal SMALL_DOGS_BATH_PRICE = 20;
         public const decimal LARGE_DOGS_BATH_PRICE = 40;

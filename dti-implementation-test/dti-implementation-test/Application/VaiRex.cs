@@ -2,7 +2,7 @@
 
 namespace dti_implementation_test.Application
 {
-    public class VaiRex : PetShop
+    public class VaiRex : PetShopBase
     {
         public const decimal SMALL_DOGS_BATH_PRICE_WEEKDAY = 15;
         public const decimal LARGE_DOGS_BATH_PRICE_WEEKDAY = 50;
