@@ -5,9 +5,12 @@ namespace dti_implementation_test.Application
 {
     public class Catalog
     {
-        private IList<IPetShop> _petShops;
+        private readonly IList<IPetShop> _petShops;
 
-        public Catalog() => _petShops = new List<IPetShop>();
+        public Catalog()
+        {
+            _petShops = new List<IPetShop>();
+        }
 
         public void Add(IPetShop petShop) => _petShops.Add(petShop);
 
