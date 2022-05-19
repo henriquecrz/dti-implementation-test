@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace dti_implementation_test.Application
+namespace Application
 {
     public class Input
     {

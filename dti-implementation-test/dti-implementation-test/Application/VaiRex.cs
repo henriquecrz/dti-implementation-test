@@ -1,6 +1,6 @@
-﻿using dti_implementation_test.Utils;
+﻿using Utils;
 
-namespace dti_implementation_test.Application
+namespace Application
 {
     public class VaiRex : PetShopBase
     {

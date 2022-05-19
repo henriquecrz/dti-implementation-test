@@ -1,4 +1,4 @@
-﻿namespace dti_implementation_test.Application
+﻿namespace Application
 {
     public interface IPetShop
     {

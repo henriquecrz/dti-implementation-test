@@ -1,7 +1,7 @@
-﻿using dti_implementation_test.Application;
-using dti_implementation_test.Utils;
+﻿using Application;
 using System;
 using System.Collections.Generic;
+using Utils;
 
 namespace dti_implementation_test
 {
@@ -26,10 +26,8 @@ namespace dti_implementation_test
             }
 
             var petShops = GetPetShops(input);
-            var catalog = new Catalog();
 
-            FillCatalog(catalog, petShops);
-            ShowBestPetShop(catalog);
+            ShowBestPetShop(petShops);
             Console.ReadKey();
         }
 
@@ -93,26 +91,18 @@ namespace dti_implementation_test
             return new Input(date, smallDogs, largeDogs);
         }
 
-        private static List<IPetShop> GetPetShops(Input input)
-        {
-            var meuCaninoFeliz = new MeuCaninoFeliz("Meu Canino Felix", 2000, input);
-            var vaiRex = new VaiRex("Vai Rex", 1700, input);
-            var chowChawgas = new ChowChawgas("Chow Chawgas", 800, input);
-
-            return new List<IPetShop>
+        private static List<IPetShop> GetPetShops(Input input) =>
+            new()
             {
-                meuCaninoFeliz,
-                vaiRex,
-                chowChawgas
+                new PetShop("Meu Canino Felix", 2000, input),
+                new PetShop("Vai Rex", 1700, input),
+                new PetShop("Chow Chawgas", 800, input)
             };
-        }
 
-        private static void FillCatalog(Catalog catalog, List<IPetShop> petShops) =>
-            petShops.ForEach(petShop => catalog.Add(petShop));
-
-        private static void ShowBestPetShop(Catalog catalog)
+        private static void ShowBestPetShop(IEnumerable<IPetShop> petShops)
         {
-            var bestPetShop = catalog.GetBestPetShop();
+            var bestPetShop = petShops.GetBestPetShop();
+
             var message = bestPetShop is null ?
                 Message.NO_REGISTERED_PET_SHOPS :
                 $"\nThe better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
