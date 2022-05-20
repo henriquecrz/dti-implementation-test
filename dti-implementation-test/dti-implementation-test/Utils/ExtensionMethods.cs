@@ -10,10 +10,10 @@ namespace Utils
         public static bool IsWeekend(this DateTime dateTime) =>
             dateTime.DayOfWeek == DayOfWeek.Sunday || dateTime.DayOfWeek == DayOfWeek.Saturday;
 
-        public static IPetShop GetBestPetShop(this IEnumerable<IPetShop> petShops) =>
-            petShops
-                .OrderBy(petShop => petShop.Amount)
-                .ThenBy(petShop => petShop.Distance)
+        public static IPetshop GetBestPetshop(this IEnumerable<IPetshop> petshops) =>
+            petshops
+                .OrderBy(petshop => petshop.Amount)
+                .ThenBy(petshop => petshop.Distance)
                 .ToList()
                 .FirstOrDefault();
     }

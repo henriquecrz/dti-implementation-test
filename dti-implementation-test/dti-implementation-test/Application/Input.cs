@@ -11,10 +11,10 @@ namespace Application
             LargeDogs = largeDogs;
         }
 
-        public DateTime Date { get; private set; }
+        public DateTime Date { get; }
 
-        public int SmallDogs { get; private set; }
+        public int SmallDogs { get; }
 
-        public int LargeDogs { get; private set; }
+        public int LargeDogs { get; }
     }
 }

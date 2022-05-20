@@ -1,13 +1,11 @@
 ﻿namespace Application
 {
-    public interface IPetShop
+    public interface IPetshop
     {
-        string Name { get; set; }
+        string Name { get; }
 
-        double Distance { get; set; }
+        double Distance { get; }
 
-        decimal Amount { get; set; }
-
-        void SetAmount(Input input);
+        decimal Amount { get; }
     }
 }

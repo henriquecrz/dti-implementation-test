@@ -1,19 +1,26 @@
 ﻿namespace Application
 {
-    public abstract class PetShopBase : IPetShop
+    public abstract class PetshopBase : IPetshop
     {
-        protected PetShopBase(string name, double distance)
+        protected PetshopBase(
+            string name,
+            double distance,
+            Input input)
         {
             Name = name;
             Distance = distance;
+
+            SetAmount(input);
         }
 
-        public string Name { get; set; }
+        public string Name { get; }
 
-        public double Distance { get; set; }
+        public double Distance { get; }
 
-        public decimal Amount { get; set; }
+        public decimal Amount { get; internal set; }
 
-        public abstract void SetAmount(Input input);
+        protected abstract void SetAmount(Input input);
+
+        public override string ToString() => $"{Name} ({Distance}m) - Total: {Amount:C}";
     }
 }

@@ -25,9 +25,11 @@ namespace dti_implementation_test
                 input = CreateInput();
             }
 
-            var petShops = GetPetShops(input);
+            var petshops = GetPetshops(input);
 
-            ShowBestPetShop(petShops);
+            ShowPetshopsBudget(petshops);
+            ShowBestPetshop(petshops);
+
             Console.ReadKey();
         }
 
@@ -91,21 +93,31 @@ namespace dti_implementation_test
             return new Input(date, smallDogs, largeDogs);
         }
 
-        private static List<IPetShop> GetPetShops(Input input) =>
+        private static List<IPetshop> GetPetshops(Input input) =>
             new()
             {
-                new PetShop("Meu Canino Felix", 2000, input),
-                new PetShop("Vai Rex", 1700, input),
-                new PetShop("Chow Chawgas", 800, input)
+                new MeuCaninoFelizPetshop("Meu Canino Felix", 2000, input),
+                new VaiRexPetshop("Vai Rex", 1700, input),
+                new ChowChawgasPetshop("Chow Chawgas", 800, input)
             };
 
-        private static void ShowBestPetShop(IEnumerable<IPetShop> petShops)
+        private static void ShowPetshopsBudget(IEnumerable<IPetshop> petshops)
         {
-            var bestPetShop = petShops.GetBestPetShop();
+            Console.WriteLine();
 
-            var message = bestPetShop is null ?
-                Message.NO_REGISTERED_PET_SHOPS :
-                $"\nThe better pet shop choice is {bestPetShop.Name}.\nThe better price is {bestPetShop.Amount:C}.";
+            foreach (var petshop in petshops)
+            {
+                Console.WriteLine(petshop);
+            }
+        }
+
+        private static void ShowBestPetshop(IEnumerable<IPetshop> petshops)
+        {
+            var bestPetshop = petshops.GetBestPetshop();
+
+            var message = bestPetshop is null ?
+                Message.NO_REGISTERED_PETSHOPS :
+                $"\nA melhor escolha de petshop é o {bestPetshop}.";
 
             Console.WriteLine(message);
         }

@@ -6,6 +6,6 @@ namespace Utils
 
         public static readonly string DOG_INVALID_VALUE = "Valor inválido, por favor insira um número inteiro positivo.";
 
-        public static readonly string NO_REGISTERED_PET_SHOPS = "There is no registered pet shops.";
+        public static readonly string NO_REGISTERED_PETSHOPS = "Não há nenhum petshop registrado.";
     }
 }
